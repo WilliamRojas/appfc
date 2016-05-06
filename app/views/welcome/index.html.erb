@@ -1,7 +1,0 @@
-<% if user_signed_in? %>
-	Bienvenido <%= current_user.username %>
-	<%= link_to 'Cerrar sessión', destroy_user_session_path, method: :delete %>
-	<% else %>
-	<%= link_to 'Registrarse', new_user_registration_path %>
-	<%= link_to 'Ingresar', new_user_session_path %>
-<%end%>

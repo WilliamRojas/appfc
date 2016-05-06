@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FiestayCumbia</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-	<%= yield %>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "FiestayCumbia" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "FiestayCumbia" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+    <%#= render 'layouts/footer' %>
+    <footer class="footer">
+      <small>
+      By MYNOMBRE Todos los derechos reservados © 2014 ::.
+      </small>
+      <nav>
+      <ul>
+        <li><%#= link_to "Créditos", “about_path” %></li>
+        <li><a href="http://www.MIPAGINA.co/">MYCOMPAÑIA</a></li>
+      </ul>
+      </nav>
+    </footer>
+  </body>
 </html>
